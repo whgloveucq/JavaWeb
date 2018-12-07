@@ -74,7 +74,7 @@ if(customer!=null){
     writer.println("<input type='hidden' name='id' value='"+ customerId +"'/>");
     writer.println("<table>");
     writer.println("<tr><td>Name:</td><td>"+"<input name='name' value='" + customer.getName().replaceAll("''","&#39;") + "'/></td></tr>");
-    writer.println("<tr><td>City:</td><td>"+"<input name='city' value='" +customer.getCity().replaceAll("''","&#39;") + "'/></td></tr>");
+    writer.println("<tr><td>City:</td><td>"+"<input name='city' value='" + customer.getCity().replaceAll("''","&#39;") + "'/></td></tr>");
     writer.println("<tr>"+"<td colspan='2' style='text-align:right'>"+"<input type='submit' value='Update' /></td>"+"</tr>");
     writer.println("</table>");
     writer.println("</form></body>");
@@ -97,12 +97,22 @@ else
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     //update customer
         int customerId=0;
         try{
+            customerId=Integer.parseInt(request.getParameter("id"));
+
+        } catch (NumberFormatException e){
 
         }
+        Customer customer=getCustomer(customerId);
+        if(customer !=null){
+        customer.setName(request.getParameter("name"));
+        customer.setCity(request.getParameter("city"));
+
+        }
+        sendCustomerList(response);
 
     }
 }

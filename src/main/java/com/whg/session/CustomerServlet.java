@@ -25,9 +25,9 @@ public class CustomerServlet extends HttpServlet {
         customer1.setCity("Miami");
         customers.add(customer1);
         Customer customer2=new Customer();
-        customer1.setId(2);
-        customer1.setName("Mickey M.");
-        customer1.setCity("Orlando");
+        customer2.setId(2);
+        customer2.setName("Mickey M.");
+        customer2.setCity("Orlando");
         customers.add(customer2);
     }
     private void sendCustomerList(HttpServletResponse response) throws IOException

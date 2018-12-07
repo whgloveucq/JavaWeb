@@ -1,12 +1,13 @@
 package com.whg.cookie;
-import java.io.IOException;
-import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 
 /**
@@ -22,7 +23,32 @@ public static final  String MENU="<div style='background:#e8e8e8;"+"padding:15px
         +"<a href='cookieInfo'>Cookie Info </a> &nbsp;&nbsp;"+"<a href='preference'>Preference </a>"+"</div>";
 
     @Override
-    protected void doGet(HttpServletRequest e HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    response.setContentType("text/html");
+    PrintWriter writer=response.getWriter();
+    writer.print("<html><head>"+"<title>Preference</title>" + "<style>table{"+"font-size:small;" +"background:NavajoWhite }</style>"
+    +"</head><body>"+MENU+ "Please select the values below:"+"<form method='post'>" +"<table>"+"<tr><td>Title Font Size:</td>"+"<td><select name='titleFontSize'>"
+            +"<option>large</option>" + "<option>x-large</option>" + "<option> xx-large </option>" +"</select></td>"+"</tr>" +"<tr><td>TitleStyle&Weight:</td>"
++"<td><select name='titleStyleAndWeight' multiple>" +"<option>italic</option>" +"<option>bold</option>" +"</select></td>"+"</tr>"  + "<tr><td>Max.Records in Table:</td>"+"<td><select name='maxRecords'>" +
+                    "<option>5</option>" +
+                    "<option>10</option>" +
+                    "</select></td>"
+                    + "</tr>"
+                    +"<tr><td rowspan='2'>" +
+                    "<input type='submit' value='Set' /> </td>" +"</tr>" +
+            "</tr>" +"</table>" + "</form>" + "</body></html>"
+
+    ) ;
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+     String maxRecords=request.getParameter("maxRecords") ;
+     String[] titleStyleAndWeight =request.getParameterValues("titleStyleAndWeight") ;
+     String titleFontSize=request.getParameter("titleFontSize");
+     response.addCookie(new Cookie("maxRecords",maxRecords));
+//   continue
     }
 }
+
+

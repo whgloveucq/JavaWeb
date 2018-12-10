@@ -47,7 +47,39 @@ public static final  String MENU="<div style='background:#e8e8e8;"+"padding:15px
      String[] titleStyleAndWeight =request.getParameterValues("titleStyleAndWeight") ;
      String titleFontSize=request.getParameter("titleFontSize");
      response.addCookie(new Cookie("maxRecords",maxRecords));
-//   continue
+     response.addCookie(new Cookie("titleFontSize",titleFontSize));
+//   delete title FontWeight and titleFontStyle cookie first
+        //Delete cookie by adding a cookie with maxAge=0;
+        Cookie cookie=new Cookie("titleFontWeight","");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        cookie=new Cookie("titleFontStyle","");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        if(titleStyleAndWeight!=null){
+            for(String style:titleStyleAndWeight){
+                if(style.equals("bold")){
+                    response.addCookie(new Cookie("titleFontWeight","bold"));
+                }else if(style.equals("italic")){
+                    response.addCookie((new Cookie("titleFontStyle","italic")));
+                }
+            }
+        }
+        response.setContentType("text/html");
+        PrintWriter writer=response.getWriter();
+        writer.println("<html><head>"+"<title>Preference</title>"+"</head><body>"+MENU+"Your preference has been set."
+        +"<br/><br/> Max.Records in Table:" + "<br/>Title Font Size:" + titleFontSize +"<br/>Title Font Style & Weight");
+        //titleStyleAndWeight will be null if none of the options was selected
+        if(titleStyleAndWeight != null){
+            writer.println("<ul>");
+            for (String style:titleStyleAndWeight){
+                writer.print("<li>" + style +"</li>") ;
+            }
+            writer.println("</ul>");
+
+        }
+        writer.println("</body></html>");
+
     }
 }
 

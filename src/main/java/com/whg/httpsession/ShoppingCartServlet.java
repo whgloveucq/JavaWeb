@@ -44,7 +44,50 @@ public class ShoppingCartServlet extends HttpServlet {
     private void sendProductList(HttpServletResponse response) throws  IOException{
   response.setContentType("text/html");
 PrintWriter writer=response.getWriter();
-writer.println("<html>");
+writer.println("<html><head><title>Products</title>"+"</head><body><h2>Products</h2>");
+writer.println("<ul>");
+for (Product product:products){
+    writer.println("<li>"+product.getName()+"("+currencyFormat.format(product.getPrice())+")("+"<a href='viewProductDetails?id="+product.getId()+"'>Details</a>");
+}
+writer.println("</ul>");
+writer.println("<a href='viewCart'>View Cart </a>");
+writer.println("</body></html>");
+
     }
+    private Product getProduct(int productId){
+      for(Product product:products){
+          if(product.getId()==productId){
+
+              return product;
+
+          }
+
+      }
+      return  null;
+    }
+
+    private void sendProductDetails(HttpServletRequest request,HttpServletResponse response) throws IOException{
+   response.setContentType("text/html");
+   PrintWriter writer=response.getWriter();
+   int productId=0;
+try {
+    productId=Integer.parseInt(request.getParameter("id"));/*get the current id if you click this item */
+}catch (NumberFormatException e){
+
+}
+Product product=getProduct(productId);
+if(product!=null){
+    writer.println("<html><head>"+"<title>ProductDetails</title></head>"+"<body><h2>Product Details</h2>"
++"<form method='post' action='addToCart'>");
+    writer.println("<input type='hidden' name='id'"+"value='"+productId+"'>");
+    writer.println("<table>");
+    writer.println("<tr><td> Name:</td><td>"+ product.getName()+"</td></tr>");
+    writer.println("<tr><td> Description:</td><td>"+ product.getDescription()+"</td></tr>");
+    writer.println("<tr><td> Name:</td><td>"+ product.getName()+"</td></tr>");
+    writer.println("<tr><td> Name:</td><td>"+ product.getName()+"</td></tr>");
+
+}
+    }
+
 
 }

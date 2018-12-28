@@ -83,11 +83,41 @@ if(product!=null){
     writer.println("<table>");
     writer.println("<tr><td> Name:</td><td>"+ product.getName()+"</td></tr>");
     writer.println("<tr><td> Description:</td><td>"+ product.getDescription()+"</td></tr>");
-    writer.println("<tr><td> Name:</td><td>"+ product.getName()+"</td></tr>");
-    writer.println("<tr><td> Name:</td><td>"+ product.getName()+"</td></tr>");
-
+    writer.println("<tr>"+"<tr>" +"<td><input name='quantity' /></td>" + "<td><input type='submit' value='Buy'/>" +"</td>" +"</tr>");
+    writer.println("<tr><td colspan='2'>" +"<a href='products'>Product List</a>" +"</td></tr>") ;
+    writer.println("</table>") ;
+    writer.println("</form></body>");
 }
+else {
+    writer.println("No product found") ;
+}
+
+    }
+private void showCart(HttpServletRequest request,HttpServletResponse response) throws IOException{
+
+response.setContentType("text/html");
+PrintWriter writer=response.getWriter();
+writer.println("<html><head><title>Shopping Cart </title>" +"</head>");
+writer.println("<body><a href='products'>"+"Products List</a>");
+HttpSession session=request.getSession();
+List<ShoppingItem>  cart= (List<ShoppingItem>) session.getAttribute(CART_ATTRIBUTE);
+if(cart !=null){
+    writer.println("<table>");
+    writer.print("<tr><td style='width:150px'>Quantity"+"</td>" +"<td style='width:150px'>Product</td>" + "<td>Amount</td></tr>");
+    double total=0.0;
+    for(ShoppingItem shoppingItem:cart){
+
+   Product product=shoppingItem.getProduct();
+
     }
 
+
+    }
+
+
+}
+
+
+}
 
 }

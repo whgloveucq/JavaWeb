@@ -36,9 +36,37 @@ public class ShoppingCartServlet extends HttpServlet {
      String uri=request.getRequestURI();
         String contextpath= request.getContextPath().toString();
      if(uri.endsWith("/products")){
-
-
+         sendProductList(response);
+     } else if(uri.endsWith("/viewProductDetails")){
+         sendProductDetails(request,response);
+     } else if(uri.endsWith("viewCart")){
+         showCart(request,response);
      }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    //add to cart
+        int productId=0;
+        int quantity=0;
+        try{
+            productId=Integer.parseInt(request.getParameter("id"));
+            quantity=Integer.parseInt(request.getParameter("quantity"));
+
+
+        }catch (NumberFormatException e){}
+   Product product=getProduct(productId);
+   if(product !=null && quantity >=0){
+       ShoppingItem shoppingItem=new ShoppingItem(product,quantity);
+       HttpSession session=request.getSession();
+       List<ShoppingItem> cart= (List<ShoppingItem>) session.getAttribute(CART_ATTRIBUTE);
+       if(cart ==null){
+       cart=new ArrayList<ShoppingItem>();
+       session.setAttribute(CART_ATTRIBUTE,cart);
+       }
+cart.add(shoppingItem);
+   }
+   sendProductList(response);
     }
 
     private void sendProductList(HttpServletResponse response) throws  IOException{
@@ -57,9 +85,7 @@ writer.println("</body></html>");
     private Product getProduct(int productId){
       for(Product product:products){
           if(product.getId()==productId){
-
               return product;
-
           }
 
       }
@@ -83,7 +109,7 @@ if(product!=null){
     writer.println("<table>");
     writer.println("<tr><td> Name:</td><td>"+ product.getName()+"</td></tr>");
     writer.println("<tr><td> Description:</td><td>"+ product.getDescription()+"</td></tr>");
-    writer.println("<tr>"+"<tr>" +"<td><input name='quantity' /></td>" + "<td><input type='submit' value='Buy'/>" +"</td>" +"</tr>");
+    writer.println("<tr>" +"<tr>"+"<td><input name='quantity' /></td>" + "<td><input type='submit' value='Buy'/>" +"</td>" +"</tr>"); //pay attention here
     writer.println("<tr><td colspan='2'>" +"<a href='products'>Product List</a>" +"</td></tr>") ;
     writer.println("</table>") ;
     writer.println("</form></body>");
@@ -108,16 +134,26 @@ if(cart !=null){
     for(ShoppingItem shoppingItem:cart){
 
    Product product=shoppingItem.getProduct();
+   int quantity=shoppingItem.getQuantity();
+   if(quantity !=0){
+       float price=product.getPrice();
+       writer.println("<tr>");
+       writer.println("<td>" +quantity+"</td>") ;
+       writer.println("<td>"+product.getName()+"</td>");
+       writer.println("<td>"+currencyFormat.format(price)+"</td>");
+       double subtotal=price*quantity;
+       writer.println("<td>"+currencyFormat.format(subtotal)+"</td>");
+       total+=subtotal;
+       writer.println("</tr>") ;
+   }
+    }
+writer.println("<tr><td colspan='4'"+"style='text-align:right'>"+"Total:"+currencyFormat.format(total)+"</td></tr>");
 
     }
-
-
-    }
-
-
+writer.println("</table></body></html>");
 }
 
 
 }
 
-}
+

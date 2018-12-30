@@ -2,11 +2,11 @@ package com.whg.httpsession;
 
 public class ShoppingItem {
     private Product product;
-    private int quality;
+    private int quantity;
 
-    public ShoppingItem(Product product, int quality) {
+    public ShoppingItem(Product product, int quantity) {
         this.product = product;
-        this.quality = quality;
+        this.quantity = quantity;
     }
 
     public Product getProduct() {
@@ -17,11 +17,11 @@ public class ShoppingItem {
         this.product = product;
     }
 
-    public int getQuality() {
-        return quality;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setQuality(int quality) {
-        this.quality = quality;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

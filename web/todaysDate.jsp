@@ -14,11 +14,12 @@
 </head>
 <body>
 <%
-DateFormat dateFormat=DateFormat.getDateInstance(DateFormat.SHORT);
+DateFormat dateFormat=DateFormat.getDateInstance(DateFormat.LONG);
 String s=dateFormat.format(new Date());
 out.println("Today is " +s) ;
 ///**/
 %>
+<%@ include file="copyright.jspf"%>
 <%----%>
 <%----%>
 

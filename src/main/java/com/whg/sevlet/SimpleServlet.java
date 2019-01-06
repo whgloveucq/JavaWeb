@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ */
 public class SimpleServlet extends HttpServlet  {
 
     private static final long serialVersionUID = 7629707394569369387L;

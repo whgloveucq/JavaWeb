@@ -18,5 +18,9 @@
   <br>
   you love yourself ,
   no other will do without any return.
+  <hr/>
+  <jsp:include page="copyright.jspf"/>
+  <hr/>
+  <%@ include file="copyright.jspf" %>
   </body>
 </html>

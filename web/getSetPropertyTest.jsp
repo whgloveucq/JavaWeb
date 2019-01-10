@@ -13,6 +13,8 @@
 <body>
 <jsp:useBean id="employee" class="com.whg.session.Employee" />
 <jsp:setProperty name="employee" property="firstName" value="Abigail"/>
+<jsp:setProperty name="employee" property="lastName" value="Wu"/>
 <jsp:getProperty name="employee" property="firstName" />
+<jsp:getProperty name="employee" property="lastName" />
 </body>
 </html>

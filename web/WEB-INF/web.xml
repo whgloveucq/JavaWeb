@@ -3,6 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
+    <!--部署描述符可以使用@WebServlet中没有对等元素的元素，2 的好处是 如果需要修改配置值 ，如Servlet路径，则不需要重新编译Servlet类-->
+   <!--部署描述符 还允许覆盖在Servlet标注中的定义的值。-->
+    <jsp-config>
+        <taglib>
+            <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+            <taglib-location>/WEB-INF/c.tld</taglib-location>
+        </taglib>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <scripting-invalid>true</scripting-invalid> <!--禁用脚本元素-->
+        </jsp-property-group>
+
+    </jsp-config>
+
+
     <servlet>
         <servlet-name>SimpleServlet</servlet-name>
         <servlet-class>com.whg.sevlet.SimpleServlet</servlet-class>

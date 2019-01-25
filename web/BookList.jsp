@@ -36,7 +36,7 @@ Books in Styled Table
         <td>ISBN</td>
         <td>Title</td>
     </tr>
-    <c:forEach items="${requestScope.books}">
+    <c:forEach items="${requestScope.books}" var="book" varStatus="status">
         <c:if test="${status.count%2 ==0}" >
             <tr style="background:#eeeeff">
         </c:if>

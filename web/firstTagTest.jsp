@@ -6,7 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib uri="/WEB-INF/mytags.tld" prefix="selfD"%>
+<%--<%@taglib uri="/WEB-INF/mytags.tld" prefix="selfD"%>--%>
+<%@taglib prefix="selfD" tagdir="/WEB-INF/tags" %>
 <html>
 <head>
     <title>Testing my first tag</title>
@@ -15,5 +16,6 @@
 Hello!!!
 <br/>
 <selfD:firstTag/>
+Today is <selfD:firstTag/>
 </body>
 </html>

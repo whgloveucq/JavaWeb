@@ -52,7 +52,6 @@
         <url-pattern>/Simple</url-pattern>
     </servlet-mapping>
     <!--Second Servlet configure-->
-
     <servlet>
         <servlet-name>WelcomeServlet</servlet-name>
         <servlet-class>com.whg.sevlet.WelcomeServlet</servlet-class>
@@ -62,5 +61,9 @@
         <servlet-name> WelcomeServlet</servlet-name>
         <url-pattern>/welcome</url-pattern>
     </servlet-mapping>
+    
+    <listener>
+        <listener-class>com.whg.listener.PerfStatListener</listener-class>
+    </listener>
 
 </web-app>

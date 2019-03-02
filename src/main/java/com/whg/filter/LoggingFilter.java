@@ -16,6 +16,8 @@ import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServletRequest;
 //@WebFilter(filterName = "LoggingFilter",urlPatterns = {"/*"},initParams = {@WebInitParam(name="logFileName",value="log.txt"),@WebInitParam(name="prefix",value = "URI:")})
 public class LoggingFilter implements Filter{
+//以后这里可以补充上 日期 时间 用户  action名称。放在日志文件中，也可以放在数据库中，作为应用的日志信息。
+//现在只有上下文访问的信息
 private PrintWriter logger;
 
 private String prefix;

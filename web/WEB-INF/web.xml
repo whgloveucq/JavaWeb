@@ -65,5 +65,21 @@
     <listener>
         <listener-class>com.whg.listener.PerfStatListener</listener-class>
     </listener>
-
+<filter>
+    <filter-name>LoggingFilter</filter-name>
+    <filter-class>com.whg.filter.LoggingFilter</filter-class>
+    <init-param>
+        <param-name>prefix</param-name>
+        <param-value>URI:</param-value>
+    </init-param>
+    <init-param>
+        <param-name>logFileName</param-name>
+        <param-value>log.txt</param-value>
+    </init-param>
+    <!--<description> config filter in blocation descriptor instead of Annotation </description>-->
+</filter>
+    <filter-mapping>
+        <filter-name>LoggingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

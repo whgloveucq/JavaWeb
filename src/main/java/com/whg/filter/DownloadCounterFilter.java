@@ -1,3 +1,4 @@
+
 package com.whg.filter;
 
 /**
@@ -22,7 +23,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 @WebFilter(filterName = "DownloadCounterFilter",urlPatterns = {"/*"})
-public class DownloadCounter implements Filter {
+public class DownloadCounterFilter implements Filter {
 
     ExecutorService executorService=Executors.newSingleThreadExecutor();
     Properties downloadLog;
@@ -35,14 +36,14 @@ public class DownloadCounter implements Filter {
         logFile=new File(appPath,"downloadlog.txt");
         if(!logFile.exists())
         {
-           try{
-               logFile.createNewFile();
+            try{
+                logFile.createNewFile();
 
-           }catch (IOException e)
-           {e.printStackTrace();}
+            }catch (IOException e)
+            {e.printStackTrace();}
 
         }
-downloadLog= new Properties();
+        downloadLog= new Properties();
         try{
 
             downloadLog.load(new FileReader(logFile));
@@ -60,8 +61,36 @@ downloadLog= new Properties();
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-    HttpServletRequest httpServletRequest=(HttpServletRequest) request ;
-    final String uri=httpServletRequest.getRequestURI();
-    executorService.execute();
+        HttpServletRequest httpServletRequest=(HttpServletRequest) request ;
+        final String uri=httpServletRequest.getRequestURI();
+        executorService.execute(new Runnable(){
+            @Override
+            public void run() {
+                String property=downloadLog.getProperty(uri);
+                if(property == null ){
+                    downloadLog.setProperty("uri","1");
+
+                }else{
+                    int count=0 ;
+                    try{
+                        count=Integer.parseInt(property);
+                    }catch (NumberFormatException e){
+                        //silent
+                    }
+                    count++ ;
+                    downloadLog.setProperty(uri,Integer.toString(count)) ;
+
+                }
+                try{
+                    downloadLog.store(new FileWriter(logFile),"");
+
+
+} catch (IOException e){
+
+                }
+
+            }
+        });
+        filterChain.doFilter(request,response);
     }
 }

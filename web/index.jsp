@@ -18,6 +18,8 @@
   <br>
   you love yourself ,
   no other will do without any return.
+  <br/>
+  ${greeting}
   <hr/>
   <jsp:include page="copyright.jspf"/>
   <hr/>

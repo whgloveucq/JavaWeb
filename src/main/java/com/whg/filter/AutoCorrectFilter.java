@@ -17,7 +17,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
-@WebFilter(filterName = "AutoCorrectFilter" ,urlPatterns = {"/*"})
+@WebFilter(filterName = "AutoCorrectFilter" ,urlPatterns = {"/*"} ,asyncSupported = true)
 public class AutoCorrectFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

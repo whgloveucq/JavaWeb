@@ -68,6 +68,7 @@
 <filter>
     <filter-name>LoggingFilter</filter-name>
     <filter-class>com.whg.filter.LoggingFilter</filter-class>
+    <async-supported>true</async-supported>
     <init-param>
         <param-name>prefix</param-name>
         <param-value>URI:</param-value>
@@ -82,4 +83,13 @@
         <filter-name>LoggingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <servlet>
+        <servlet-name>AsyncComplete</servlet-name>
+        <servlet-class>com.whg.sevlet.AsyncCompleteServlet</servlet-class>
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AsyncComplete</servlet-name>
+        <url-pattern>/asyncComplete</url-pattern>
+    </servlet-mapping>
 </web-app>

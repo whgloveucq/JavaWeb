@@ -114,8 +114,16 @@
         <!--<auth-method>BASIC</auth-method>-->
         <!--<realm-name>Members Only</realm-name>-->
     <!--</login-config>-->
+    <!--<login-config>-->
+        <!--<auth-method>DIGEST</auth-method>-->
+        <!--<realm-name>Digest authentication</realm-name>-->
+    <!--</login-config>-->
     <login-config>
-        <auth-method>DIGEST</auth-method>
-        <realm-name>Digest authentication</realm-name>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.html</form-login-page>
+            <form-error-page>/error.html</form-error-page>
+        </form-login-config>
     </login-config>
+
 </web-app>

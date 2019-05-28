@@ -38,8 +38,6 @@ logger=new PrintWriter(new File(appPath,logFileName));
      e.printStackTrace();
      throw new ServletException(e.getMessage());
  }
-
-
     }
 
     @Override

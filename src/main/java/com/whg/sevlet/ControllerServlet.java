@@ -45,9 +45,15 @@ String action=uri.substring((lastIndex+1));
         try{
             product.setPrice(Float.parseFloat(productForm.getPrice()));
         }catch(NumberFormatException e){}
+            // code to save product
+            //store model in a scope variable for the view
+            request.setAttribute("product",product);
         }
-        // code to save product
-        //store model in a scope variable for the view
-        request.setAttribute("product",product);
+        //forward to a view
+        String dispatchUrl=null;
+        if(action.equals("product_input.action")){
+            dispatchUrl="/WEB-INF/jsp/ProductForm.jsp";
+        } else if()
+
     }
 }

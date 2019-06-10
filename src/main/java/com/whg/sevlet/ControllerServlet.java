@@ -13,7 +13,7 @@ import com.whg.form.ProductForm;
  * Included in JavaWeb
  * Go ahead ,do what you say and say what you do .
  **/
-@WebServlet(name="ControllerServlet",urlPatterns = {"/product_input" ,"/product_save"})
+@WebServlet(name="ControllerServlet",urlPatterns = {"/product_input.action" ,"/product_save.action"})
 public class ControllerServlet extends HttpServlet {
 
 
@@ -34,11 +34,13 @@ process(request,response) ;
 
         String uri=request.getRequestURI();
 
+
      /*   uri is in this form:/contextName/resourceName ,for example:/app10a/product_input , However ,in the event of a default context, the context name is empty,and uri has this form resourceName ,e.g.:/product_inputd  ,*/
   int  lastIndex=uri.lastIndexOf("/") ;
   String action=uri.substring(lastIndex+1);
   //excute an action
 if(action.equals("product_input.action")) {
+//    dispatchUrl="/WEB-INF/jsp/ProductForm.jsp" ;
 // no action class ,there is nothing to be done
 } else if(action.equals("product_save.action")){
 //create form
@@ -57,9 +59,10 @@ try{
 
 //code to save product
     request.setAttribute("product" ,product);
+//    dispatchUrl="/WEB-INF/jsp/ProductDetails.jsp" ;
 }
 //forward to a view
-String dispatchUrl=null;
+        String dispatchUrl=null;
 if(action.equals("product_input.action")){
     dispatchUrl="/WEB-INF/jsp/ProductForm.jsp" ;
 } else if(action.equals("product_save.action")){

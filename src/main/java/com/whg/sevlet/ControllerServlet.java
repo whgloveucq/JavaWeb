@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.annotation.WebServlet;
 import com.whg.model.Product1;
 import com.whg.form.ProductForm;
 /**
@@ -12,6 +13,7 @@ import com.whg.form.ProductForm;
  * Included in JavaWeb
  * Go ahead ,do what you say and say what you do .
  **/
+@WebServlet(name="ControllerServlet",urlPatterns = {"/product_input" ,"/product_save"})
 public class ControllerServlet extends HttpServlet {
 
 
@@ -48,11 +50,25 @@ productForm.setPrice(request.getParameter("price"));
 //create model
 Product1 product=new Product1();
 product.setName(productForm.getName());
-product.getDescription(productForm.setDescription());
-product.setPrice(productForm.getName());
+product.setDescription(productForm.getDescription());
+try{
+    product.setPrice(Float.parseFloat(productForm.getPrice()));
+} catch(NumberFormatException e){}
 
+//code to save product
+    request.setAttribute("product" ,product);
 }
-
+//forward to a view
+String dispatchUrl=null;
+if(action.equals("product_input.action")){
+    dispatchUrl="/WEB-INF/jsp/ProductForm.jsp" ;
+} else if(action.equals("product_save.action")){
+    dispatchUrl="/WEB-INF/jsp/ProductDetails.jsp" ;
+}
+if(dispatchUrl!=null){
+    RequestDispatcher rd=request.getRequestDispatcher(dispatchUrl) ;
+    rd.forward(request,response);
+}
 
     }
 

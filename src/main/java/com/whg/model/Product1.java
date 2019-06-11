@@ -1,14 +1,18 @@
-package com.whg.form;
+package com.whg.model;
+import  java.io.Serializable;
+
 
 /**
  * Created by whg at 19-6-6
  * Included in JavaWeb
  * Go ahead ,do what you say and say what you do .
  **/
-public class ProductForm {
+public class Product1 implements Serializable{
+
+    private static final long serialVersionUID = -984234164203546565L;
     private String name;
     private String description;
-    private String price;
+    private float price ;
 
     public String getName() {
         return name;
@@ -26,11 +30,11 @@ public class ProductForm {
         this.description = description;
     }
 
-    public String getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 }

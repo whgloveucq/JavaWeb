@@ -47,7 +47,7 @@ public class DispatcherServlet extends HttpServlet {
         } else if(action.equals("product_savee.action")){
 //            dispatchUrl="/WEB-INF/jsp/ProductDetails.jsp" ;
         SaveProductController controller=new SaveProductController();
-        controller.handleRequest(request,response);
+            dispatchUrl = controller.handleRequest(request,response);
         }
         if(dispatchUrl!=null){
             RequestDispatcher rd=request.getRequestDispatcher(dispatchUrl) ;

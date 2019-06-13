@@ -39,7 +39,7 @@ public class SaveProductController implements Controller  {
             }
             //insert code to add product to the database
             request.setAttribute("product", product);
-            return "/WEB-NF/jsp/ProductDetails.jsp";
+            return "/WEB-INF/jsp/ProductDetails.jsp";
         }
         else{
             //store errors and form in a scope variable for the view

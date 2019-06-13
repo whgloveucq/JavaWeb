@@ -17,13 +17,14 @@
     <p id="errors">
         Error(s)!
         <ul>
-      <c:forEach var="error" items="${requestScope.erros}">
-          <li>${error}</li>
+      <c:forEach var="error" items="${requestScope.errors}">
+          <li> ${error} </li>
       </c:forEach>
 
         </ul>
     </p>
 </c:if>
+<br/>
 <div id="global">
     <form action="product_savee.action" method="post" >
     <fieldset>

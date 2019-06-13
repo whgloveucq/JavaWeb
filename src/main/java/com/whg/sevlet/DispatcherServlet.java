@@ -7,12 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.whg.controller.InputProductController;
 import com.whg.controller.SaveProductController;
-
+import javax.servlet.annotation.WebServlet;
 /**
  * Created by whg at 19-6-11
  * Included in JavaWeb
  * Go ahead ,do what you say and say what you do .
  **/
+@WebServlet(name="DispatcherServlet",urlPatterns = {"/product_inputt.action" ,"/product_savee.action"})
 public class DispatcherServlet extends HttpServlet {
 
 
@@ -39,11 +40,11 @@ public class DispatcherServlet extends HttpServlet {
         String action=uri.substring(lastIndex+1);
 
         String dispatchUrl=null;
-        if(action.equals("product_input.action")){
+        if(action.equals("product_inputt.action")){
 //            dispatchUrl="/WEB-INF/jsp/ProductForm.jsp" ;
             InputProductController controller= new InputProductController();
             dispatchUrl=controller.handleRequest(request,response);
-        } else if(action.equals("product_save.action")){
+        } else if(action.equals("product_savee.action")){
 //            dispatchUrl="/WEB-INF/jsp/ProductDetails.jsp" ;
         SaveProductController controller=new SaveProductController();
         controller.handleRequest(request,response);

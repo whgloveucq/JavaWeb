@@ -13,7 +13,7 @@ import com.whg.form.ProductForm;
  * Included in JavaWeb
  * Go ahead ,do what you say and say what you do .
  **/
-@WebServlet(name="ControllerServlet",urlPatterns = {"/product_input.action" ,"/product_save.action"})
+//@WebServlet(name="ControllerServlet",urlPatterns = {"/product_input.action" ,"/product_save.action"})
 public class ControllerServlet extends HttpServlet {
 
 

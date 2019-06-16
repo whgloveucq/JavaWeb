@@ -26,7 +26,7 @@
 </c:if>
 <br/>
 <div id="global">
-    <form action="product_savee.action" method="post" >
+    <form action="product_save.action" method="post" >
     <fieldset>
         <legend>Add a product</legend>
         <p>

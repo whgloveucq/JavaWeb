@@ -61,7 +61,19 @@
         <servlet-name> WelcomeServlet</servlet-name>
         <url-pattern>/welcome</url-pattern>
     </servlet-mapping>
-    
+    <servlet>
+        <servlet-name>SpringMVC</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/config/SpringMVC-config.xml</param-value>
+    </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpringMVC</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
     <listener>
         <listener-class>com.whg.listener.PerfStatListener</listener-class>
     </listener>
@@ -83,15 +95,7 @@
         <filter-name>LoggingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <servlet>
-        <servlet-name>AsyncComplete</servlet-name>
-        <servlet-class>com.whg.sevlet.AsyncCompleteServlet</servlet-class>
-        <async-supported>true</async-supported>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AsyncComplete</servlet-name>
-        <url-pattern>/asyncComplete</url-pattern>
-    </servlet-mapping>
+
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>JSP pages</web-resource-name>

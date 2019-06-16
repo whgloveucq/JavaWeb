@@ -13,7 +13,7 @@ import javax.servlet.annotation.WebServlet;
  * Included in JavaWeb
  * Go ahead ,do what you say and say what you do .
  **/
-@WebServlet(name="DispatcherServlet",urlPatterns = {"/product_inputt.action" ,"/product_savee.action"})
+//@WebServlet(name="DispatcherServlet",urlPatterns = {"/product_inputt.action" ,"/product_savee.action"})
 public class DispatcherServlet extends HttpServlet {
 
 
@@ -43,11 +43,12 @@ public class DispatcherServlet extends HttpServlet {
         if(action.equals("product_inputt.action")){
 //            dispatchUrl="/WEB-INF/jsp/ProductForm.jsp" ;
             InputProductController controller= new InputProductController();
-            dispatchUrl=controller.handleRequest(request,response);
+
+//            dispatchUrl=controller.handleRequest(request,response);
         } else if(action.equals("product_savee.action")){
-//            dispatchUrl="/WEB-INF/jsp/ProductDetails.jsp" ;
+//            dispatchUrl="/WEB-INF/jsp/ProductDetails.jsp" ;ol
         SaveProductController controller=new SaveProductController();
-            dispatchUrl = controller.handleRequest(request,response);
+//            dispatchUrl = controller.handleRequest(request,response);
         }
         if(dispatchUrl!=null){
             RequestDispatcher rd=request.getRequestDispatcher(dispatchUrl) ;

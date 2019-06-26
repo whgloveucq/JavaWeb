@@ -43,15 +43,17 @@ public class DispatcherServlet extends HttpServlet {
         if(action.equals("product_inputt.action")){
 //            dispatchUrl="/WEB-INF/jsp/ProductForm.jsp" ;
             InputProductController controller= new InputProductController();
-            dispatchUrl=controller.handleRequest(request,response);
+        //    dispatchUrl=controller.handleRequest(request,response);
+            dispatchUrl="/WEB-INF/jsp/ProductForm.jsp" ;
         } else if(action.equals("product_savee.action")){
 //            dispatchUrl="/WEB-INF/jsp/ProductDetails.jsp" ;
         SaveProductController controller=new SaveProductController();
-            dispatchUrl = controller.handleRequest(request,response);
+           // dispatchUrl = controller.handleRequest(request,response);
+            dispatchUrl="/WEB-INF/jsp/ProductDetails.jsp" ;
         }
         if(dispatchUrl!=null){
             RequestDispatcher rd=request.getRequestDispatcher(dispatchUrl) ;
-            rd.forward(request,response);
+           rd.forward(request,response);
         }
 
     }

@@ -18,7 +18,7 @@ public class ProductValidator {
          String price=productForm.getPrice();
         if(price ==null || price.trim().isEmpty()){
          errors.add("Product must have a price ");
-        }else {-
+        }else {
             try {
                 Float.parseFloat(price);
             } catch (NumberFormatException e) {

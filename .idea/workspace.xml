@@ -7,26 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5adfdf8c-3944-4355-aa18-52df86e4b54f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/Maven__javax_servlet_jsp_jstl_jstl_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/Maven__org_springframework_spring_aop_5_1_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/Maven__org_springframework_spring_beans_5_1_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/Maven__org_springframework_spring_context_5_1_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/Maven__org_springframework_spring_core_5_1_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/Maven__org_springframework_spring_expression_5_1_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/Maven__org_springframework_spring_jcl_5_1_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/Maven__org_springframework_spring_web_5_1_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/Maven__org_springframework_spring_webmvc_5_1_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../JavaWeb/web/WEB-INF/config/SpringMVC-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaWeb/.idea/artifacts/JavaWeb_war_exploded.xml" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/artifacts/JavaWeb_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/servlet_api.xml" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/libraries/servlet_api.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaWeb/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../JavaWeb/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaWeb/JavaWeb.iml" afterPath="$PROJECT_DIR$/../JavaWeb/JavaWeb.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaWeb/pom.xml" afterPath="$PROJECT_DIR$/../JavaWeb/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/controller/InputProductController.java" afterPath="$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/controller/InputProductController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/sevlet/DispatcherServlet.java" afterPath="$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/sevlet/DispatcherServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaWeb/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/../JavaWeb/web/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/validator/ProductValidator.java" afterPath="$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/validator/ProductValidator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/../JavaWeb/out/" />
     <ignored path="$PROJECT_DIR$/../JavaWeb/target/" />
@@ -59,8 +41,8 @@
       <file leaf-file-name="ProductForm.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../JavaWeb/web/WEB-INF/jsp/ProductForm.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="15" column="45" lean-forward="true" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+            <state relative-caret-position="405">
+              <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -69,8 +51,8 @@
       <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../JavaWeb/web/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="77" column="36" lean-forward="true" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+            <state relative-caret-position="2079">
+              <caret line="77" column="36" lean-forward="false" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
               <folding>
                 <marker date="1560558965763" expanded="true" signature="5168:5169" ph="..." />
               </folding>
@@ -82,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/../JavaWeb/web/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
-              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+              <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -101,9 +83,11 @@
       <file leaf-file-name="ProductValidator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/validator/ProductValidator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="444">
+              <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+              <folding>
+                <element signature="e#379#387#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,7 +95,7 @@
       <file leaf-file-name="DispatcherServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/sevlet/DispatcherServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
+            <state relative-caret-position="1323">
               <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
@@ -133,7 +117,7 @@
       <file leaf-file-name="InputProductController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/controller/InputProductController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
+            <state relative-caret-position="432">
               <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -145,7 +129,7 @@
       <file leaf-file-name="SaveProductController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/controller/SaveProductController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
+            <state relative-caret-position="135">
               <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -157,7 +141,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../JavaWeb/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
+            <state relative-caret-position="1998">
               <caret line="74" column="28" lean-forward="false" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
               <folding />
             </state>
@@ -246,7 +230,6 @@
         <option value="$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/sevlet/ControllerServlet.java" />
         <option value="$PROJECT_DIR$/../JavaWeb/web/WEB-INF/jsp/ProductDetails.jsp" />
         <option value="$PROJECT_DIR$/../JavaWeb/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/validator/ProductValidator.java" />
         <option value="$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/controller/SaveProductController.java" />
         <option value="$PROJECT_DIR$/../JavaWeb/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/../JavaWeb/pom.xml" />
@@ -254,6 +237,7 @@
         <option value="$PROJECT_DIR$/../JavaWeb/web/WEB-INF/jsp/ProductForm.jsp" />
         <option value="$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/controller/InputProductController.java" />
         <option value="$PROJECT_DIR$/../JavaWeb/web/WEB-INF/config/SpringMVC-servlet.xml" />
+        <option value="$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/validator/ProductValidator.java" />
       </list>
     </option>
   </component>
@@ -296,6 +280,11 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="servletMaven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="servletMaven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
       </expand>
       <select />
@@ -356,7 +345,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -368,48 +357,6 @@
               <item name="JavaWeb" type="58d84e3e:PackageViewProjectNode" />
               <item name="JavaWeb" type="616d4139:PackageViewModuleNode" />
               <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Production">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
-              <item name="src/main/java" type="cbb8eebc:String" user="src/main/java" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
-              <item name="src/main/java" type="cbb8eebc:String" user="src/main/java" />
-              <item name="com/whg" type="cbb8eebc:String" user="com/whg" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <subPane subId="Default">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
-              <item name="src/main/java" type="cbb8eebc:String" user="src/main/java" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
-              <item name="src/main/java" type="cbb8eebc:String" user="src/main/java" />
-              <item name="com/whg" type="cbb8eebc:String" user="com/whg" />
             </path>
           </expand>
           <select />
@@ -455,6 +402,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="whg" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="whg" type="462c0819:PsiDirectoryNode" />
               <item name="validator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -466,11 +422,75 @@
               <item name="JavaWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
+            <path>
+              <item name="JavaWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="servlet-api" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="JavaWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="servlet-api" type="70bed36:NamedLibraryElementNode" />
+              <item name="servlet-api.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Tomcat 7.0.85" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="JavaWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Tomcat 7.0.85" type="70bed36:NamedLibraryElementNode" />
+              <item name="servlet-api.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope">
+        <subPane subId="Production">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
+              <item name="src/main/java" type="cbb8eebc:String" user="src/main/java" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
+              <item name="src/main/java" type="cbb8eebc:String" user="src/main/java" />
+              <item name="com/whg" type="cbb8eebc:String" user="com/whg" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Default">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
+              <item name="src/main/java" type="cbb8eebc:String" user="src/main/java" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="JavaWeb" type="cbb8eebc:String" user="JavaWeb" />
+              <item name="src/main/java" type="cbb8eebc:String" user="src/main/java" />
+              <item name="com/whg" type="cbb8eebc:String" user="com/whg" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -781,7 +801,8 @@
       <workItem from="1560552906707" duration="5190000" />
       <workItem from="1560768453882" duration="327000" />
       <workItem from="1561557567420" duration="1478000" />
-      <workItem from="1561559705876" duration="4907000" />
+      <workItem from="1561559705876" duration="5105000" />
+      <workItem from="1561816721614" duration="405000" />
     </task>
     <task id="LOCAL-00001" summary="20181021">
       <created>1540130584162</created>
@@ -902,11 +923,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560557311261</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="20181222">
+      <created>1561564645656</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1561564645656</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145962000" />
+    <option name="totallyTimeSpent" value="146565000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -921,7 +949,7 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4246738" sideWeight="0.3849892" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32977462" sideWeight="0.7219222" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977462" sideWeight="0.49784017" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977462" sideWeight="0.37419006" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23704104" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -934,17 +962,16 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977462" sideWeight="0.49784017" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977462" sideWeight="0.47840172" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4246738" sideWeight="0.6150108" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19572954" sideWeight="0.4611231" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4246738" sideWeight="0.6150108" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977462" sideWeight="0.27915767" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28725702" sideWeight="0.57699114" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977462" sideWeight="0.49568033" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977462" sideWeight="0.27807775" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29211664" sideWeight="0.57699114" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28239742" sideWeight="0.42300886" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -954,6 +981,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="JRebel Setup Guide" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991362" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977462" sideWeight="0.47840172" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1284,7 +1312,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1331,7 +1358,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/controller/SaveProductController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="135">
           <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1341,7 +1368,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../JavaWeb/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
+        <state relative-caret-position="1998">
           <caret line="74" column="28" lean-forward="false" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
           <folding />
         </state>
@@ -1359,7 +1386,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/sevlet/DispatcherServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
+        <state relative-caret-position="1323">
           <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding />
         </state>
@@ -1368,23 +1395,23 @@
     <entry file="file://$PROJECT_DIR$/../JavaWeb/web/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../JavaWeb/web/WEB-INF/jsp/ProductForm.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="45" lean-forward="true" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+        <state relative-caret-position="405">
+          <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../JavaWeb/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="77" column="36" lean-forward="true" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+        <state relative-caret-position="2079">
+          <caret line="77" column="36" lean-forward="false" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
           <folding>
             <marker date="1560558965763" expanded="true" signature="5168:5169" ph="..." />
           </folding>
@@ -1393,7 +1420,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/controller/InputProductController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
+        <state relative-caret-position="432">
           <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1411,9 +1438,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../JavaWeb/src/main/java/com/whg/validator/ProductValidator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="444">
+          <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding>
+            <element signature="e#379#387#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

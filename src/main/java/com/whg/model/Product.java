@@ -10,15 +10,24 @@ import javax.servlet.http.HttpSessionBindingListener;
 
 public class Product implements HttpSessionBindingListener {
 
-    private String id;
+    private Long id;
     private String name;
     private double price;
+    private String description;
 
-    public String getId() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

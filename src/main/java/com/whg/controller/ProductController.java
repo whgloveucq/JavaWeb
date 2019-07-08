@@ -5,6 +5,7 @@ package com.whg.controller;
  * Included in JavaWeb
  * Go ahead ,do what you say and say what you do .
  **/
+import com.whg.validator.ProductValidator;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.whg.model.Product1;
 import com.whg.form.ProductForm;
+import org.springframework.web.servlet.ModelAndView;
+
+
+import java.util.List;
+
 //import org.springframework.web.servlet.DispatcherServlet;
 @Controller
 @RequestMapping(value="/springweb")
@@ -31,14 +37,30 @@ public class ProductController {
         Product1 product=new Product1();
         product.setName(productForm.getName());
         product.setDescription(productForm.getDescription());
-        try{
-            product.setPrice(Float.parseFloat(
-                    productForm.getPrice()
-            ));
-        } catch (NumberFormatException e){}
-        // add product
-        model.addAttribute("product",product);
-        return "ProductDetails" ;
+        ProductValidator productValidator=new ProductValidator();
+        List<String> errors=productValidator.validate(productForm);
+        if(errors.isEmpty()) {
+
+            //create model
+            product.setName(productForm.getName());
+            product.setDescription(productForm.getDescription());
+            try {
+                product.setPrice(Float.parseFloat(productForm.getPrice()));
+            } catch (NumberFormatException e) {
+
+            }
+            model.addAttribute("product",product);
+            return "ProductDetails" ;
+
+        }
+        else{
+            //store errors and form in a scope variable for the view
+            model.addAttribute("errors",errors);
+            model.addAttribute("form",productForm);
+//            return "/WEB-INF/jsp/ProductForm.jsp" ;
+            return "ProductForm" ;
+        }
+
     }
 
 

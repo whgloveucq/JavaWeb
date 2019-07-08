@@ -5,15 +5,21 @@ package com.whg.controller;
  * Included in JavaWeb
  * Go ahead ,do what you say and say what you do .
  **/
+import com.whg.service.ProductService;
+import com.whg.service.ProductServiceImpl;
 import com.whg.validator.ProductValidator;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.whg.model.Product;
 import com.whg.model.Product1;
 import com.whg.form.ProductForm;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.whg.service.ProductService;
 
 
 import java.util.List;
@@ -62,6 +68,22 @@ public class ProductController {
         }
 
     }
+    @RequestMapping(value = "/product_savee" ,method= RequestMethod.POST)
+    public String save2Product(ProductForm productForm, RedirectAttributes redirectAttributes){
+logger.info("save Product called") ;
+//no need to create and instantiate a ProductForm
+        //create Product
+        Product product=new Product();
+        product.setName(productForm.getName());
+        product.setDescription(productForm.getDescription());
+        try{
+            product.setPrice(Double.parseDouble(productForm.getPrice());
 
+        }catch (NumberFormatException e){}
+        ProductService productService =new ProductServiceImpl();
+        Product saveProduct=productService.add(product);
+        redirectAttributes.addFlashAttribute("message" ,"The product was successfully added") ;
+        return "redirect:/product_view/" + saveProduct.getId();
+    }
 
 }

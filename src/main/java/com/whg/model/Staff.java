@@ -8,7 +8,9 @@ package com.whg.model;
 //plt_Staff
 public class Staff {
 
-    String staffid;
+    String staffid; //员工号
+    String cid  ;//身份证号
+    String lampid; //罗盘ID
     Org org;
     String sex;
     String state ;//部门状态

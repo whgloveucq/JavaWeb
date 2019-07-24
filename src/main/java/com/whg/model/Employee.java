@@ -1,4 +1,5 @@
 package com.whg.model;
+import java.util.Date;
 
 /**
  * Created by whg at 19-1-10
@@ -10,7 +11,9 @@ Employee {
 
 private int id;
 private String name;
+private Date birthDate;
 private Address address;
+
 
     public int getId() {
         return id;
@@ -32,7 +35,16 @@ private Address address;
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(Address address)
+    {
         this.address = address;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 }

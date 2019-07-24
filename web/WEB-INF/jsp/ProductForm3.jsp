@@ -26,7 +26,7 @@
 </c:if>
 <br/>
 <div id="global">
-    <form action="product_savee.action" method="post" >
+    <form action="/product_save" method="post" >
     <fieldset>
         <legend>Add a product</legend>
         <p>
@@ -43,11 +43,15 @@
             <label for="price">Price:</label>
             <input type="text" id="price" name="price" tabindex="3">
         </p>
+        <p>
+            <label for="productionDate">productionDate:</label>
+            <input type="text" id="productionDate" name="productionDate" tabindex="4">
+        </p>
 
 
         <p id="buttons">
-            <input id="reset" type="reset" tabindex="4">
-            <input id="submit" type="submit" tabindex="5" value="Add Product" >
+            <input id="reset" type="reset" tabindex="5">
+            <input id="submit" type="submit" tabindex="6" value="Add Product" >
 
 
         </p>

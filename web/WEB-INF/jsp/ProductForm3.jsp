@@ -7,23 +7,25 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
     <title>Add Product Form</title>
     <style type="text/css">@import url(/css/main.css);</style>
 </head>
 <body>
-<c:if test="${requestScope.errors != null }">
-    <p id="errors">
-        Error(s)!
-        <ul>
-      <c:forEach var="error" items="${requestScope.errors}">
-          <li> ${error} </li>
-      </c:forEach>
+<%--<c:if test="${requestScope.errors != null }">--%>
+<%--    <p id="errors">--%>
+<%--        Error(s)!--%>
+<%--        <ul>--%>
+<%--      <c:forEach var="error" items="${requestScope.errors}">--%>
+<%--          <li> ${error} </li>--%>
+<%--      </c:forEach>--%>
 
-        </ul>
-    </p>
-</c:if>
+<%--        </ul>--%>
+<%--    </p>--%>
+<%--</c:if>--%>
+${errors.bindingFailure}
 <br/>
 <div id="global">
     <form action="/product_save" method="post" >
@@ -41,7 +43,7 @@
 
         <p>
             <label for="price">Price:</label>
-            <input type="text" id="price" name="price" tabindex="3">
+            <input type="text" id="price" name="price" tabindex="3"> ${errors.codes}  ${errors.field} ${errors.rejectedValue} ${errors.defaultMessage}
         </p>
         <p>
             <label for="productionDate">productionDate:</label>

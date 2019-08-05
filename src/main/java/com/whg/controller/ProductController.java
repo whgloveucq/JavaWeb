@@ -18,7 +18,7 @@ public class ProductController {
     public String inputProduct(Model model){
 
          model.addAttribute("product",new Product3()) ;
-         return "ProductForm3" ;
+         return "ProductForm4" ;
      }
     @RequestMapping(value="/product_save")
     public String saveProduct(@ModelAttribute Product3 product, BindingResult bindingResult,Model model){
@@ -29,7 +29,7 @@ public class ProductController {
             FieldError fieldError=bindingResult.getFieldError();
             logger.info("Code:" + fieldError.getCode() + ", field:" + fieldError.getField());
             model.addAttribute("errors" ,fieldError);
-            return "ProductForm3" ;
+            return "ProductForm4" ;
 
         }
 

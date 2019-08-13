@@ -68,9 +68,15 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/config/SpringMVC-servlet.xml</param-value>
         </init-param>
+
         <load-on-startup>1</load-on-startup>
         <!--onstartup元素是可选的，如果它存在，则它将在应用程序启动时装载Servlet并调用它的init方法。若它
         不存在，则在该servlet的第一个请求时加载-->
+<!--        <multipart-config>-->
+<!--            <max-file-size>20848820</max-file-size>-->
+<!--            <max-request-size>418018841</max-request-size>-->
+<!--            <file-size-threshold>1048576</file-size-threshold>-->
+<!--        </multipart-config>-->
     </servlet>
     <servlet-mapping>
         <servlet-name>SpringMVC</servlet-name>

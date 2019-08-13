@@ -26,7 +26,9 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize"  value="2000000" />
         <property name="maxUploadSizePerFile" value="200000" />
-s    </bean>
+   </bean>
+    <bean id="multipartResolver_Servlet3.0"  class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+    </bean>
 <!--    the multipartResolver above is surpposed to be used when the Servelet version is  3.0 below ,if 3.0 above ,we can use another class "-->
 <!--    org.springframework.web.multipart.support.StandardServletMultipartResolver" ,meanwhile ,make some configuration for servlet  with  "multipart-config" in web.xml-->
 
@@ -90,5 +92,6 @@ s    </bean>
 
     <mvc:resources mapping="/css/*" location="/css/" />
     <mvc:resources mapping="/*.html" location="/"/>
+    <mvc:resources mapping="/images/**" location="/images/" />
 
 </beans>

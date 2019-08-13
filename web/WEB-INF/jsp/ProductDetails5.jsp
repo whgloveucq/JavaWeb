@@ -23,9 +23,10 @@
     <p>Following files are uploaded successfully.</p>
     <ol>
         <c:forEach items="${product.images}" var="image">
-            <li>${image.originalFilename}
-            <img width="100" src="<c:url value="/images/"/> ${image.originalFilename} "/>
-            </li>
+            <li>${image.originalFilename} <br/>
+
+            <img width="100" src= '<c:url value= '/images/' />${image.originalFilename}' />
+
         </c:forEach>
     </ol>
 

@@ -35,8 +35,10 @@ public class Product2Controller {
             for(MultipartFile multipartFile:files){
                 String fileName=multipartFile.getOriginalFilename();
                 fileNames.add(fileName);
+                System.out.println(servletRequest.getContextPath().toString());
+
                 System.out.println(servletRequest.getServletContext().getRealPath("/images"));
-                File imageFile=new File(servletRequest.getServletContext().getRealPath("/WEB-INF/images"),fileName) ;
+                File imageFile=new File(servletRequest.getServletContext().getRealPath("/images"),fileName) ;
                 try{
                     multipartFile.transferTo(imageFile);
                 } catch (IOException e){
@@ -45,7 +47,9 @@ public class Product2Controller {
             }
         }
         //save product here
+        String serverPath= servletRequest.getContextPath().toString();
         model.addAttribute("product",product) ;
+        model.addAttribute("serverpath",serverPath);
         return "ProductDetails5" ;
 
     }

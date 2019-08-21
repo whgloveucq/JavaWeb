@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <!--部署描述符可以使用@WebServlet中没有对等元素的元素，2 的好处是 如果需要修改配置值 ，如Servlet路径，则不需要重新编译Servlet类-->
+   <!--部署描述符 还允许覆盖在Servlet标注中的定义的值。-->
+    <!--<jsp-config>-->
+        <!--<taglib>-->
+            <!--<taglib-uri>http://www.codecoord.com</taglib-uri>-->
+            <!--<taglib-location>/WEB-INF/c.tld</taglib-location>-->
+        <!--</taglib>-->
+
+        <!--<taglib>-->
+            <!--<taglib-uri>http://www.codecoord.com/fmt</taglib-uri>-->
+            <!--<taglib-location>/WEB-INF/fmt.tld</taglib-location>-->
+        <!--</taglib>-->
+
+
+        <!--<taglib>-->
+            <!--<taglib-uri>http://www.codecoord.com/fn</taglib-uri>-->
+            <!--<taglib-location>/WEB-INF/fn.tld</taglib-location>-->
+        <!--</taglib>-->
+
+        <!--<taglib>-->
+            <!--<taglib-uri>http://www.codecoord.com/sql</taglib-uri>-->
+            <!--<taglib-location>/WEB-INF/sql.tld</taglib-location>-->
+        <!--</taglib>-->
+
+        <!--<taglib>-->
+            <!--<taglib-uri>http://www.codecoord.com</taglib-uri>-->
+            <!--<taglib-location>/WEB-INF/x.tld</taglib-location>-->
+        <!--</taglib>-->
+
+
+
+        <!--<jsp-property-group>-->
+            <!--<url-pattern>*.jsp</url-pattern>-->
+            <!--<scripting-invalid>true</scripting-invalid> &lt;!&ndash;禁用脚本元素&ndash;&gt;-->
+        <!--</jsp-property-group>-->
+
+    <!--</jsp-config>-->
+
+
+    <servlet>
+        <servlet-name>SimpleServlet</servlet-name>
+        <servlet-class>com.whg.sevlet.SimpleServlet</servlet-class>
+        <load-on-startup>10</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SimpleServlet</servlet-name>
+        <url-pattern>/Simple</url-pattern>
+    </servlet-mapping>
+    <!--Second Servlet configure-->
+    <servlet>
+        <servlet-name>WelcomeServlet</servlet-name>
+        <servlet-class>com.whg.sevlet.WelcomeServlet</servlet-class>
+        <load-on-startup>20</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> WelcomeServlet</servlet-name>
+        <url-pattern>/welcome</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SpringMVC</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/config/SpringMVC-servlet.xml</param-value>
+        </init-param>
+
+        <load-on-startup>1</load-on-startup>
+        <!--onstartup元素是可选的，如果它存在，则它将在应用程序启动时装载Servlet并调用它的init方法。若它
+        不存在，则在该servlet的第一个请求时加载-->
+<!--        <multipart-config>-->
+<!--            <max-file-size>20848820</max-file-size>-->
+<!--            <max-request-size>418018841</max-request-size>-->
+<!--            <file-size-threshold>1048576</file-size-threshold>-->
+<!--        </multipart-config>-->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpringMVC</servlet-name>
+        <!--map all reuests to the DispatcherServlet-->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <listener>
+        <listener-class>com.whg.listener.PerfStatListener</listener-class>
+    </listener>
+<filter>
+    <filter-name>LoggingFilter</filter-name>
+    <filter-class>com.whg.filter.LoggingFilter</filter-class>
+    <async-supported>true</async-supported>
+    <init-param>
+        <param-name>prefix</param-name>
+        <param-value>URI:</param-value>
+    </init-param>
+    <init-param>
+        <param-name>logFileName</param-name>
+        <param-value>log.txt</param-value>
+    </init-param>
+    <!--<description> config filter in blocation descriptor instead of Annotation </description>-->
+</filter>
+    <filter-mapping>
+        <filter-name>LoggingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>AsyncComplete</servlet-name>
+        <servlet-class>com.whg.sevlet.AsyncCompleteServlet</servlet-class>
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AsyncComplete</servlet-name>
+        <url-pattern>/asyncComplete</url-pattern>
+    </servlet-mapping>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>JSP pages</web-resource-name>
+            <url-pattern>/WEB-INF/*</url-pattern>
+        </web-resource-collection>
+        <!--must have auth-constraint,otherwise the specified web resources will not be restricted-->
+        <auth-constraint/>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Servlet1</web-resource-name>
+            <url-pattern>/servlet1</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>member</role-name>
+            <role-name>manager</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <!--<login-config>-->
+        <!--<auth-method>BASIC</auth-method>-->
+        <!--<realm-name>Members Only</realm-name>-->
+    <!--</login-config>-->
+    <!--<login-config>-->
+        <!--<auth-method>DIGEST</auth-method>-->
+        <!--<realm-name>Digest authentication</realm-name>-->
+    <!--</login-config>-->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.html</form-login-page>
+            <form-error-page>/error.html</form-error-page>
+        </form-login-config>
+    </login-config>
+
+</web-app>

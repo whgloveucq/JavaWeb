@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisGeneratorConfiguration">
+    <option name="credentials">
+      <map>
+        <entry key="jdbc:mysql://localhost:3306/whgtest">
+          <value>
+            <Credential>
+              <option name="username" value="root" />
+            </Credential>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="tableConfigs">
+      <map>
+        <entry key="ORG">
+          <value>
+            <TableConfig>
+              <option name="basePackage" value="" />
+              <option name="comment" value="true" />
+              <option name="domainName" value="Org" />
+              <option name="domainPackage" value="com.whg.model" />
+              <option name="exampleName" value="OrgExample" />
+              <option name="examplePackage" value="com.whg.example" />
+              <option name="examplePostfix" value="Example" />
+              <option name="mapperName" value="OrgMapper" />
+              <option name="mapperPackage" value="com.whg.mapper" />
+              <option name="mapperPostfix" value="Mapper" />
+              <option name="moduleRootPath" value="$PROJECT_DIR$" />
+              <option name="name" value="ORG" />
+              <option name="primaryKey" value="orgid" />
+              <option name="resourcePath" value="src/main/resources" />
+              <option name="sourcePath" value="src/main/java" />
+              <option name="tableName" value="ORG" />
+              <option name="xmlPackage" value="com.whg.mapper" />
+            </TableConfig>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

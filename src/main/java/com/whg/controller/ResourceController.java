@@ -24,7 +24,7 @@ public class ResourceController {
     public String login(@ModelAttribute Login login ,HttpSession session ,Model model){
 
            model.addAttribute("login" ,new Login()) ;
-           if("paul".equals(login.getUserName().toString())&&"secret".equals(login.getPassWord().toString())){
+           if("paul".equals(login.getUserName())&&"secret".equals(login.getPassWord())){
 
                session.setAttribute("loggedIn" ,Boolean.TRUE);
 

@@ -5,6 +5,8 @@ import com.whg.mapper.OrgMapper;
 import com.whg.model.Org;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 @Service
 public class OrgServiceImpl implements OrgService {
    @Autowired
@@ -27,5 +29,10 @@ public class OrgServiceImpl implements OrgService {
     @Override
     public Org selectByPrimaryKey(String orgid) {
         return orgMapper.selectByPrimaryKey(orgid) ;
+    }
+
+    @Override
+    public List<Org> selectAllOrgs() {
+        return orgMapper.selectAllOrgs();
     }
 }

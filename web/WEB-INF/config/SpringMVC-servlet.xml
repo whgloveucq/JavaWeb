@@ -7,21 +7,21 @@
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:jee="http://java.sun.com/xml/ns/javaee"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-      http://www.springframework.org/schema/context
-      http://www.springframework.org/schema/context/spring-context.xsd
-      http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/spring-aop.xsd
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd
        http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd">
+       http://www.springframework.org/schema/tx/spring-tx.xsd" >
     <!--http://www.w3.org/2001/XMLSchema-instance-->
     <!--http://www.w3.org/2001/XMLSchema-instance.xsd-->
 
 <!--    多数据源配置-->
     <bean id="propertyConfigure" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
-    <property name="location" value="classpath*:db.properties"/>
+    <property name="location" value="classpath:db.properties"/>
     </bean>
 
     <!-- 第二种方式：加载多个properties文件
@@ -41,7 +41,7 @@
 
     <bean id="dataSourceOne" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"  >
         <property name="driverClassName" value="${jdbc.one.driver}"/>
-        <property name="url" value="${jdbc.one.driver}"/>
+        <property name="url" value="${jdbc.one.url}"/>
         <property name="username" value="${jdbc.one.username}"/>
         <property name="password" value="${jdbc.one.password}"/>
         <property name="initialSize" value="${jdbc.initialSize}"/>
@@ -59,7 +59,7 @@
 
     <bean id="dataSourceTwo" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"  >
         <property name="driverClassName" value="${jdbc.two.driver}"/>
-        <property name="url" value="${jdbc.two.driver}"/>
+        <property name="url" value="${jdbc.two.url}"/>
         <property name="username" value="${jdbc.two.username}"/>
         <property name="password" value="${jdbc.two.password}"/>
         <property name="initialSize" value="${jdbc.initialSize}"/>
@@ -104,6 +104,17 @@
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="select*" read-only="true"/>
+            <tx:method name="find*" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
 
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -185,8 +196,9 @@
 <aop:config>
 <!--    pointcut元素定义一个切入点，execution中的第以个星号，用以匹配方法的返回类型，这里星号表明匹配所有返回类型。com.abc.service.*.* (..)表明匹配com.abc.service-->
 <!--    包下的所有类的所有方法。-->
-<aop:pointcut id="myPoincut" expression="execution(*com.whg.service.*.*(..))"/>
+<aop:pointcut id="myPoincut" expression="execution(* com.whg.service.*.*(..))"/>
 <!--    将定义好的事物处理策略应用到上述的切入点-->
 <aop:advisor advice-ref="txAdvice" pointcut-ref="myPoincut" />
+
 </aop:config>
 </beans>

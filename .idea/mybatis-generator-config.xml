@@ -37,6 +37,29 @@
             </TableConfig>
           </value>
         </entry>
+        <entry key="ORGTYPE">
+          <value>
+            <TableConfig>
+              <option name="basePackage" value="" />
+              <option name="comment" value="true" />
+              <option name="domainName" value="Orgtype" />
+              <option name="domainPackage" value="com.whg.model" />
+              <option name="exampleName" value="" />
+              <option name="examplePackage" value="" />
+              <option name="examplePostfix" value="Example" />
+              <option name="mapperName" value="OrgtypeMapper" />
+              <option name="mapperPackage" value="com.whg.mapper" />
+              <option name="mapperPostfix" value="Mapper" />
+              <option name="moduleRootPath" value="$PROJECT_DIR$" />
+              <option name="name" value="ORGTYPE" />
+              <option name="primaryKey" value="" />
+              <option name="resourcePath" value="src/main/resources" />
+              <option name="sourcePath" value="src/main/java" />
+              <option name="tableName" value="ORGTYPE" />
+              <option name="xmlPackage" value="com.whg.mapper" />
+            </TableConfig>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

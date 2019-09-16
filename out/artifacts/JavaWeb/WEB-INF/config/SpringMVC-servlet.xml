@@ -88,6 +88,19 @@
     <!--   让spring使用我们配置的多数据源-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="multipleDataSource" />
+
+        <property name="plugins">
+            <bean class="com.github.pagehelper.PageInterceptor">
+                <property name="properties">
+                    <value>
+
+                        helperDialect=mysql
+                        reasonable=true
+                    </value>
+                </property>
+
+            </bean>
+        </property>
     </bean>
 <!--     mybatis.spring 自动映射-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -172,14 +185,25 @@
 <!--            </set>-->
 <!--        </property>-->
 <!--    </bean>-->
-   <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" >
-   <property name="basenames" >
-   <list>
-       <value> /WEB-INF/resource/messages  </value>
-       <value>/WEB-INF/resource/labels</value>
-   </list>
-   </property>
-   </bean>
+
+<!--消息-->
+    <mvc:annotation-driven validator="validator"/>
+<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" >
+    <property name="providerClass" value="org.hibernate.validator.HibernateValidator"></property>
+    <property name="validationMessageSource" ref="validationMessageSource"></property>
+</bean>
+
+    <bean id="validationMessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" >
+        <property name="basenames" >
+            <list>
+                <value> /WEB-INF/resource/messages  </value>
+                <value>/WEB-INF/resource/labels</value>
+                <value>/WEB-INF/resource/messages_Zh.properties</value>
+            </list>
+        </property>
+        <property name="fileEncodings" value="utf8"></property>
+        <property name="cacheSeconds"  value="120"></property>
+    </bean>
 
     <!--<context:annotation-config />-->
     <context:component-scan base-package="com.whg.controller" > </context:component-scan>
@@ -191,7 +215,8 @@
 
     <mvc:resources mapping="/css/*" location="/css/" />
     <mvc:resources mapping="/*.html" location="/"/>
-    <mvc:resources mapping="/images/**" location="/images/" />
+    <mvc:resources mapping="/images/**" location="/images" />
+
 <!-- AOP配置（事物控制）-->
 <aop:config>
 <!--    pointcut元素定义一个切入点，execution中的第以个星号，用以匹配方法的返回类型，这里星号表明匹配所有返回类型。com.abc.service.*.* (..)表明匹配com.abc.service-->
@@ -201,4 +226,5 @@
 <aop:advisor advice-ref="txAdvice" pointcut-ref="myPoincut" />
 
 </aop:config>
+   <mvc:default-servlet-handler />
 </beans>

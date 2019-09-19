@@ -16,9 +16,9 @@
     <script type="text/javascript" src="/jscript/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-${path}  <br/>
-${pageContext.request.contextPath}  1 <br/>
-<%=request.getContextPath()%> 2 <br/>
+<%--${path}  <br/>--%>
+<%--${pageContext.request.contextPath}  1 <br/>--%>
+<%--<%=request.getContextPath()%> 2 <br/>--%>
 <div>
 
     <form modelAttribue="org" action="/OrgManage/orgListSelective" method="post">

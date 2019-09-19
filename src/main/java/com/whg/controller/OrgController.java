@@ -7,9 +7,14 @@ import com.whg.service.OrgService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import  org.springframework.ui.Model;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import org.apache.commons.logging.Log;
@@ -27,6 +32,92 @@ public class OrgController {
     @Autowired
     private OrgService orgService ;
     private static final Log logger=LogFactory.getLog(OrgController.class);
+    private  HttpSession session=new HttpSession() {
+        @Override
+        public long getCreationTime() {
+            return 0;
+        }
+
+        @Override
+        public String getId() {
+            return null;
+        }
+
+        @Override
+        public long getLastAccessedTime() {
+            return 0;
+        }
+
+        @Override
+        public ServletContext getServletContext() {
+            return null;
+        }
+
+        @Override
+        public void setMaxInactiveInterval(int i) {
+
+        }
+
+        @Override
+        public int getMaxInactiveInterval() {
+            return 0;
+        }
+
+        @Override
+        public HttpSessionContext getSessionContext() {
+            return null;
+        }
+
+        @Override
+        public Object getAttribute(String s) {
+            return null;
+        }
+
+        @Override
+        public Object getValue(String s) {
+            return null;
+        }
+
+        @Override
+        public Enumeration<String> getAttributeNames() {
+            return null;
+        }
+
+        @Override
+        public String[] getValueNames() {
+            return new String[0];
+        }
+
+        @Override
+        public void setAttribute(String s, Object o) {
+
+        }
+
+        @Override
+        public void putValue(String s, Object o) {
+
+        }
+
+        @Override
+        public void removeAttribute(String s) {
+
+        }
+
+        @Override
+        public void removeValue(String s) {
+
+        }
+
+        @Override
+        public void invalidate() {
+
+        }
+
+        @Override
+        public boolean isNew() {
+            return false;
+        }
+    };
 
 
     //see what has been there in the table of database
@@ -96,23 +187,49 @@ public  String Org(@RequestParam(value = "currentPage",defaultValue = "1")String
        if(id == null){
            //如果id不存在，就是新增数据，创建一个空对象即可
            org=new Org();
+           model.addAttribute("msg","ok");
+//           if(session.getAttribute("errors")!=null)
+//           {
+//               model.addAttribute("Allerrors",session.getAttribute("errors"));
+//
+//           }
 
        }
        else{
            //如果id存在，就是修改数据，把原有的数据查询出来。
            org= orgService.selectByPrimaryKey(id);
+           model.addAttribute("msg","ok");
        }
       model.addAttribute("org",org) ;
        return "Org_AddForm" ;
 
     }
     //    新增或修改机构信息页面，使用post跳转到页面
+
     @RequestMapping(value = "/insertOrg" ,method = RequestMethod.POST)
-    public String AddOrg(@ModelAttribute Org org,@Valid Org orginfo, Model model){
+//   @ResponseBody
+    public String AddOrg(@Validated @ModelAttribute Org org, BindingResult bindingResult, Model model){
         try{
-           if(orginfo!=null){
-               model.addAttribute("errors",orginfo);
-               return   "Org_AddForm" ;
+//            ArrayList<String> errorList= new ArrayList<String>();
+         if(bindingResult.hasErrors()){
+//
+//               for(int i=0 ;i < bindingResult.getErrorCount();i++ ){
+//                   errorList.add(bindingResult.getFieldError().getRejectedValue().toString()) ;
+//
+//                  session.setAttribute("errors",errorList);
+//               }
+
+            //  model.addAttribute("errors",errorList);
+            //   return   "redirect:/OrgManage/Org_AddForm" ;
+             for (FieldError fieldError : bindingResult.getFieldErrors()){
+                 System.out.println(fieldError.getField()+ " : " + fieldError.getDefaultMessage()+":"+fieldError.getRejectedValue());
+
+             }
+             List<FieldError> errors=bindingResult.getFieldErrors();
+               model.addAttribute("errors",errors);
+//              session.setAttribute("errors",errors);
+             return "redirect:/OrgManage/insertOrg" ;
+
            }
            else{
             orgService.insert(org) ;
@@ -120,8 +237,9 @@ public  String Org(@RequestParam(value = "currentPage",defaultValue = "1")String
             model.addAttribute("org",org1);
           //  return "redirect:/OrgAddForm" ;
            //return "OrgAddForm" ;
-            return "redirect:/OrgManage/orglist" ;}
+            return "redirect:/OrgManage/orglist" ;
         }
+      }
         catch (Exception e){
         model.addAttribute("msg",e.getMessage());
         //model.addAttribute("org",org1);
@@ -185,93 +303,6 @@ public  String Org(@RequestParam(value = "currentPage",defaultValue = "1")String
 
     public String toUpdateOrg(Model model,Org org)
     {
-          HttpSession session=new HttpSession() {
-              @Override
-              public long getCreationTime() {
-                  return 0;
-              }
-
-              @Override
-              public String getId() {
-                  return null;
-              }
-
-              @Override
-              public long getLastAccessedTime() {
-                  return 0;
-              }
-
-              @Override
-              public ServletContext getServletContext() {
-                  return null;
-              }
-
-              @Override
-              public void setMaxInactiveInterval(int i) {
-
-              }
-
-              @Override
-              public int getMaxInactiveInterval() {
-                  return 0;
-              }
-
-              @Override
-              public HttpSessionContext getSessionContext() {
-                  return null;
-              }
-
-              @Override
-              public Object getAttribute(String s) {
-                  return null;
-              }
-
-              @Override
-              public Object getValue(String s) {
-                  return null;
-              }
-
-              @Override
-              public Enumeration<String> getAttributeNames() {
-                  return null;
-              }
-
-              @Override
-              public String[] getValueNames() {
-                  return new String[0];
-              }
-
-              @Override
-              public void setAttribute(String s, Object o) {
-
-              }
-
-              @Override
-              public void putValue(String s, Object o) {
-
-              }
-
-              @Override
-              public void removeAttribute(String s) {
-
-              }
-
-              @Override
-              public void removeValue(String s) {
-
-              }
-
-              @Override
-              public void invalidate() {
-
-              }
-
-              @Override
-              public boolean isNew() {
-                  return false;
-              }
-          };
-
 
         try {
             session.setAttribute("org",org);

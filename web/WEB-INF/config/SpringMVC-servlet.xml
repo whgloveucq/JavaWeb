@@ -187,24 +187,27 @@
 <!--    </bean>-->
 
 <!--消息-->
-    <mvc:annotation-driven validator="validator"/>
-<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" >
-    <property name="providerClass" value="org.hibernate.validator.HibernateValidator"></property>
-    <property name="validationMessageSource" ref="validationMessageSource"></property>
-</bean>
+
+
 
     <bean id="validationMessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" >
         <property name="basenames" >
             <list>
                 <value> /WEB-INF/resource/messages  </value>
                 <value>/WEB-INF/resource/labels</value>
-                <value>/WEB-INF/resource/messages_Zh.properties</value>
+                <value>/WEB-INF/resource/messages_Zh</value>
             </list>
         </property>
         <property name="fileEncodings" value="utf8"></property>
         <property name="cacheSeconds"  value="120"></property>
     </bean>
 
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" >
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"></property>
+        <property name="validationMessageSource" ref="validationMessageSource"></property>
+    </bean>
+
+    <mvc:annotation-driven validator="validator"/>
     <!--<context:annotation-config />-->
     <context:component-scan base-package="com.whg.controller" > </context:component-scan>
     <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />-->

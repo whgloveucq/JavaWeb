@@ -1,6 +1,7 @@
 package com.whg.controller;
 
 import org.apache.log4j.Logger;
+//import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -18,11 +19,12 @@ Order 数值小优先级越高*/
 @Order(1)
 public class MultipleDataSourceAspectAdvice {
 
-    private static final Logger LOGGER=Logger.getLogger(MultipleDataSourceAspectAdvice.class);
+  private static final Logger LOGGER= Logger.getLogger(MultipleDataSourceAspectAdvice.class);
+
 
     public MultipleDataSourceAspectAdvice(){
 
-     LOGGER.info("MultipleDataSourceAspectAdvice 加载成功");
+    LOGGER.info("MultipleDataSourceAspectAdvice 加载成功");
     }
     //定义切面
     @Pointcut("execution(* com.whg.service.*.*(..))")
@@ -31,10 +33,10 @@ public class MultipleDataSourceAspectAdvice {
     @Around("pointCut()")
     public Object doAround(ProceedingJoinPoint jp) throws Throwable {
         if(jp.getTarget() instanceof DataBaseOne ){
-            LOGGER.debug("使用数据库连接：dataSourceOneKey");
+           LOGGER.debug("使用数据库连接：dataSourceOneKey");
             MultipleDataSource.setDataSourceKey("dataSourceOneKey");
         } else if(jp.getTarget() instanceof  DataBaseTwo){
-            LOGGER.debug("使用数据库连接：dataSourceTwoKey");
+           LOGGER.debug("使用数据库连接：dataSourceTwoKey");
             MultipleDataSource.setDataSourceKey("dataSourceTwoKey");
 
         }

@@ -93,7 +93,6 @@
             <bean class="com.github.pagehelper.PageInterceptor">
                 <property name="properties">
                     <value>
-
                         helperDialect=mysql
                         reasonable=true
                     </value>
@@ -195,7 +194,7 @@
             <list>
                 <value> /WEB-INF/resource/messages  </value>
                 <value>/WEB-INF/resource/labels</value>
-                <value>/WEB-INF/resource/messages_Zh</value>
+                <value>classpath:ValidationMessages</value>
             </list>
         </property>
         <property name="fileEncodings" value="utf8"></property>

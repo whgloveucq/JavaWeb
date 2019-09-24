@@ -9,6 +9,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 
 <html>
 <head>
@@ -19,11 +20,12 @@
 <body>
 
 <c:if test="${errors} !=null">
+    <label>deee</label>
     <c:forEach items="${errors}"  var="error">
         <li>${error.getDefaultMessage}</li>
     </c:forEach>
 </c:if>
-<form:form modelAttribute="org" action="/OrgManage/insertOrg" method="post">
+<form:form modelAttribute="org" action="/OrgManage/insertOrg" >
     <input type="hidden" name="id" value="${org.orgid}">
 
 
@@ -41,8 +43,9 @@
             <tr>
                 <th>机构ID</th>
                 <td>
-                   <input type="text" name="orgid" value="${org.orgid}">
+<%--                   <input type="text" name="orgid" value="${org.orgid}">--%>
 <%--                    <form:input path="orgid" />--%>
+                    <from:input path="orgid" />
                     <form:errors path="orgid"></form:errors>
                     </td>
             </tr>

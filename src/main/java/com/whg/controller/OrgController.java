@@ -14,9 +14,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import  org.springframework.ui.Model;
 
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
+import java.util.*;
+
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -24,6 +24,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionContext;
 import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 
 @Controller
@@ -181,18 +182,20 @@ public  String Org(@RequestParam(value = "currentPage",defaultValue = "1")String
 
 //    新增或修改机构信息页面，使用get跳转到页面
     @RequestMapping(value = "/insertOrg" ,method = RequestMethod.GET)
-    public String AddOrg(  Model model,String id){
+    public String AddOrg( Model model,String id){
        Org org;
-     ;
-       if(id == null){
+
+       if(id == null) {
            //如果id不存在，就是新增数据，创建一个空对象即可
-           org=new Org();
-           model.addAttribute("msg","ok");
-//           if(session.getAttribute("errors")!=null)
-//           {
-//               model.addAttribute("Allerrors",session.getAttribute("errors"));
-//
-//           }
+           org = new Org();
+
+           if(session.getAttribute("SessionErrors")!=null)
+           {
+              model.addAttribute("errors",session.getAttribute("SessionErrors"));
+               model.addAttribute("msg", "ok"+session.getAttribute("SessionErrors"));
+
+           }
+           model.addAttribute("msg", "ok");
 
        }
        else{
@@ -208,7 +211,7 @@ public  String Org(@RequestParam(value = "currentPage",defaultValue = "1")String
 
     @RequestMapping(value = "/insertOrg" ,method = RequestMethod.POST)
 //   @ResponseBody
-    public String AddOrg(@Validated @ModelAttribute Org org, BindingResult bindingResult, Model model){
+    public String AddOrg(@Valid @ModelAttribute("org")  Org org, BindingResult bindingResult, Model model){
         try{
 //            ArrayList<String> errorList= new ArrayList<String>();
          if(bindingResult.hasErrors()){
@@ -221,14 +224,22 @@ public  String Org(@RequestParam(value = "currentPage",defaultValue = "1")String
 
             //  model.addAttribute("errors",errorList);
             //   return   "redirect:/OrgManage/Org_AddForm" ;
+             Map<String,Object> map=new HashMap<String,Object>();
              for (FieldError fieldError : bindingResult.getFieldErrors()){
                  System.out.println(fieldError.getField()+ " : " + fieldError.getDefaultMessage()+":"+fieldError.getRejectedValue());
+               //  errors.add(fieldError);
+                 map.put(fieldError.getField(),fieldError.getDefaultMessage());
 
              }
-             List<FieldError> errors=bindingResult.getFieldErrors();
-               model.addAttribute("errors",errors);
-//              session.setAttribute("errors",errors);
+             //System.out.println(errors);
+             List<FieldError> errorFields= bindingResult.getFieldErrors();
+
+               model.addAttribute("errors",errorFields);
+
+             session.setAttribute("SessionErrors",errorFields);
+              System.out.println(errorFields);
              return "redirect:/OrgManage/insertOrg" ;
+
 
            }
            else{

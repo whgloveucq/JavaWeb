@@ -70,13 +70,31 @@
             <td>${org.orgtype}</td>
             <td>${org.name}</td>
             <td>${org.pid}</td>
-            <td>${org.state}</td>
+<%--            0 CHAR类型对应是48，1是49，2是50--%>
+
+<%--            <c:if test = "${org.state == 0 }" >--%>
+<%--            <td>未生效</td>--%>
+<%--            </c:if>--%>
+            <c:choose>
+            <c:when test="${org.state == 0 }">
+            <td>未生效</td>
+            </c:when>
+
+            <c:when test="${org.state == 1 }">
+            <td>生效</td>
+            </c:when>
+            <c:otherwise>
+            <td>未知</td>
+            </c:otherwise>
+            </c:choose>
             <td>${org.description}</td>
             <td>[<a href="/OrgManage/updateOrg?orgid=${org.orgid}">编辑</a> ]</td>
             <td><a href="javascript:;" onclick="deleteById(${org.orgid},'${org.name}')"> 删除</a></td>
         </tr>
     </c:forEach>
 
+
+</table>
     <tr>
         [<a href="/OrgManage/orglist?currentPage=1">首页</a>]&nbsp
         [<a href="/OrgManage/orglist?currentPage=${page.prePage}">上一页</a>]&nbsp
@@ -85,10 +103,15 @@
         [转到页]
         [第 ${page.pageNum}页 &nbsp:[共${page.pages} 页] ]
     </tr>
-</table>
 </div>
 
 <script>
+    // $(function () {
+    //     //test
+    //     alert("let me test this demo")
+    //
+    // });
+
     function deleteById(id,label) {
 
         var r= confirm('确定要删除"'+label+'"吗?');
@@ -103,7 +126,7 @@
                     success:function (data) {
                     if(data.success){
                         $('#org-' + id).remove();
-                        // alert('删除成功' + label);
+                        alert('删除成功' + label);
                         alert(data.msg);
                     }
                     else

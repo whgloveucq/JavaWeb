@@ -9,7 +9,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 
 <html>
 <head>
@@ -19,13 +18,13 @@
 </head>
 <body>
 
-<c:if test="${errors} !=null">
-    <label>deee</label>
-    <c:forEach items="${errors}"  var="error">
-        <li>${error.getDefaultMessage}</li>
-    </c:forEach>
-</c:if>
-<form:form modelAttribute="org" action="/OrgManage/insertOrg" >
+<%--<c:if test="${errors} !=null">--%>
+<%--    <label>deee</label>--%>
+<%--    <c:forEach items="${errors}"  var="error">--%>
+<%--        <li>${error.getDefaultMessage}</li>--%>
+<%--    </c:forEach>--%>
+<%--</c:if>--%>
+<form:form modelAttribute="org"  name="org" action="/OrgManage/insertOrg" >
     <input type="hidden" name="id" value="${org.orgid}">
 
 
@@ -45,35 +44,62 @@
                 <td>
 <%--                   <input type="text" name="orgid" value="${org.orgid}">--%>
 <%--                    <form:input path="orgid" />--%>
-                    <from:input path="orgid" />
-                    <form:errors path="orgid"></form:errors>
+                    <form:input path="orgid" />
+
                     </td>
+                <td>
+                    <form:errors path="orgid"></form:errors>
+
+                </td>
             </tr>
             <tr>
                 <th>机构类型</th>
                 <td><input type="text" name="orgtype" value="${org.orgtype}">
-                <form:errors path="orgtype"></form:errors>
+
+                </td>
+                <td>
+                    <form:errors path="orgtype"></form:errors>
                 </td>
             </tr>
             <tr>
                 <th>机构名称</th>
                 <td><input type="text" name="name" value="${org.name}">
-                <form:errors path="name"></form:errors>
+
+                </td>
+                <td>
+                    <form:errors path="name"></form:errors>
                 </td>
             </tr>
             <tr>
                 <th>上级机构</th>
                 <td><input type="text" name="pid" value="${org.pid}">
-                <form:errors path="pid"></form:errors>
+
+                </td>
+                <td>
+                    <form:errors path="pid"></form:errors>
                 </td>
             </tr>
             <tr>
                 <th>机构状态</th>
-                <td><input type="text" name="state" value="${org.state}"></td>
+ <td>
+
+<%--<input type="text" name="state" value="${org.state}">--%>
+
+                <select name="state" >
+                    <option value="0">未生效</option>
+                    <option value="1">生效</option>
+                </select>
+                </td>
+                <td>
+                    <form:errors path="state"></form:errors>
+                </td>
+
+
             </tr>
             <tr>
                 <th>机构描述</th>
                 <td><input type="text" name="description" value="${org.description}"></td>
+                <td></td>
             </tr>
             <tr>
                 <th colspan="2">

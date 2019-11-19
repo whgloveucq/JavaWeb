@@ -21,10 +21,15 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionContext;
 import javax.validation.Valid;
 import org.hibernate.validator.constraints.*;
+import org.springframework.web.servlet.ModelAndView;
+import com.whg.UtilTools.UtilMap;
+
+import static java.awt.SystemColor.menu;
 
 
 @Controller
@@ -182,19 +187,13 @@ public  String Org(@RequestParam(value = "currentPage",defaultValue = "1")String
 
 //    新增或修改机构信息页面，使用get跳转到页面
     @RequestMapping(value = "/insertOrg" ,method = RequestMethod.GET)
-    public String AddOrg( Model model,String id){
+    public String AddOrg( Model model,String id   ){
        Org org;
 
-       if(id == null) {
+       if(id == null ) {
            //如果id不存在，就是新增数据，创建一个空对象即可
            org = new Org();
 
-           if(session.getAttribute("SessionErrors")!=null)
-           {
-              model.addAttribute("errors",session.getAttribute("SessionErrors"));
-               model.addAttribute("msg", "ok"+session.getAttribute("SessionErrors"));
-
-           }
            model.addAttribute("msg", "ok");
 
        }
@@ -211,34 +210,16 @@ public  String Org(@RequestParam(value = "currentPage",defaultValue = "1")String
 
     @RequestMapping(value = "/insertOrg" ,method = RequestMethod.POST)
 //   @ResponseBody
-    public String AddOrg(@Valid @ModelAttribute("org")  Org org, BindingResult bindingResult, Model model){
+    public String AddOrg(@Validated @ModelAttribute("org")  Org org, BindingResult bindingResult, Model model){
         try{
 //            ArrayList<String> errorList= new ArrayList<String>();
          if(bindingResult.hasErrors()){
-//
-//               for(int i=0 ;i < bindingResult.getErrorCount();i++ ){
-//                   errorList.add(bindingResult.getFieldError().getRejectedValue().toString()) ;
-//
-//                  session.setAttribute("errors",errorList);
-//               }
-
-            //  model.addAttribute("errors",errorList);
-            //   return   "redirect:/OrgManage/Org_AddForm" ;
-             Map<String,Object> map=new HashMap<String,Object>();
              for (FieldError fieldError : bindingResult.getFieldErrors()){
                  System.out.println(fieldError.getField()+ " : " + fieldError.getDefaultMessage()+":"+fieldError.getRejectedValue());
-               //  errors.add(fieldError);
-                 map.put(fieldError.getField(),fieldError.getDefaultMessage());
 
              }
-             //System.out.println(errors);
-             List<FieldError> errorFields= bindingResult.getFieldErrors();
-
-               model.addAttribute("errors",errorFields);
-
-             session.setAttribute("SessionErrors",errorFields);
-              System.out.println(errorFields);
-             return "redirect:/OrgManage/insertOrg" ;
+              model.addAttribute("msg","errors");
+             return "Org_AddForm" ;
 
 
            }
@@ -291,11 +272,51 @@ public  String Org(@RequestParam(value = "currentPage",defaultValue = "1")String
 
 
         try {
-//           Org record = new Org();
 
-//           record.setOrgid(orgid);
            Org record= orgService.selectByPrimaryKey(orgid);
-           model.addAttribute("org",record) ;
+            model.addAttribute("org",record) ;
+           Map  map=new HashMap();
+           map.put("1","生效");
+           map.put("0","未生效");
+         // List statesList=new ArrayList();
+          UtilMap stateMaps=new UtilMap();
+          stateMaps.setUtilMap(map);
+
+          model.addAttribute("state",stateMaps);
+//          statesList.add(map);
+//
+          String stateCode= record.getState().toString();
+            model.addAttribute("stateCode",stateCode);
+//          String stateName ;
+//
+//          if(stateCode=="1")
+//          {
+//
+//              stateName="生效" ;
+//          }
+//          else
+//          {
+//              stateName="未生效" ;
+//          }
+//
+//
+//
+//          //tongguo huoqu d code xianshi label ,tongshi ye you ke xuan de lable,wanshang huiqu yanjiu .20190927
+////            model.addAttribute("statesList",statesList) ;
+//            model.addAttribute("state",statesList);
+//            for(int i=0;i<statesList.size();i++)
+//            {
+//                Map  map1=(Map)statesList.get(i);
+//
+//
+//                System.out.println(stateCode+":  "+stateName);
+//                model.addAttribute("stateCode",stateCode);
+//                model.addAttribute("stateName",stateName);
+//
+//            }
+
+
+
            return "Org_EditForm";
 
           // int success = orgService.updateByPrimaryKeySelective(record);
@@ -304,7 +325,8 @@ public  String Org(@RequestParam(value = "currentPage",defaultValue = "1")String
        {
 //           model.addAttribute("success",0);
            model.addAttribute("msg",e.getMessage());
-           return  null;
+//           return  null;
+           return "Org_EditForm";
 
        }
 
@@ -337,9 +359,27 @@ public  String Org(@RequestParam(value = "currentPage",defaultValue = "1")String
         return null;
     }
 
+    //get orgtree
 
-
-
+//    @RequestMapping(value="getTreeList", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+//    @ResponseBody
+//    public ResponseData getTreeList(HttpServletRequest request){
+//        ResponseData responseData=new ResponseData();
+//
+//        try{
+//            List<Org> orgtree =  orgService.selectAllOrgs(); //所有机构都获取
+//                    //menuService.getMenuByIds();
+//            responseData.setStatus(0);
+//            responseData.setMsg("获取数据成功");
+//            responseData.setData(menu);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            responseData.setStatus(1);
+//            responseData.setMsg("获取数据失败");
+//        }
+//        return  responseData;
+//    }
+//
 
 
 

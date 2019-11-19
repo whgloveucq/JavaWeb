@@ -186,9 +186,6 @@
 <!--    </bean>-->
 
 <!--消息-->
-
-
-
     <bean id="validationMessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" >
         <property name="basenames" >
             <list>
@@ -197,7 +194,8 @@
                 <value>classpath:ValidationMessages</value>
             </list>
         </property>
-        <property name="fileEncodings" value="utf8"></property>
+<!--        <property name="fileEncodings" value="utf8"></property>-->
+        <property name="defaultEncoding" value="utf-8"></property>
         <property name="cacheSeconds"  value="120"></property>
     </bean>
 
@@ -216,6 +214,10 @@
     <mvc:annotation-driven conversion-service="conversionSerice_formatter" />  <!--this line is ongly for Formatters -->
 
     <mvc:resources mapping="/css/*" location="/css/" />
+<!--    <mvc:resources mapping="/jscript/ztree/css/*" location="/jscript/ztree/css/" />-->
+<!--    <mvc:resources mapping="/jscript/ztree/js/*" location="/jscript/ztree/js/" />-->
+    <mvc:resources mapping="/jscript/ztree/*" location="/jscript/ztree/" />
+
     <mvc:resources mapping="/*.html" location="/"/>
     <mvc:resources mapping="/images/**" location="/images" />
 
